@@ -1,10 +1,25 @@
 function onBallClick(){
     const elBall = document.querySelector('.ball');
-    const computedStyles = getComputedStyle(elBall);
-    let width = computedStyles.width.replace("px", "");
-    let height = computedStyles.height.replace("px", "");
-    console.log(`${+width + 50}px`)
-    elBall.style.width = `${+width + 50}px`;
-    elBall.style.height = `${+height + 50}px`;
-    elBall.innerText = `${+width + 50}px`;
+        const computedStyles = getComputedStyle(elBall);
+        let width = computedStyles.width.replace("px", "");
+        let height = computedStyles.height.replace("px", "");
+        if (+width + 50 >= 400){
+            elBall.style.width = '100px';
+            elBall.style.height = '100px';
+        } else {
+            elBall.style.width = `${+width + 50}px`;
+            elBall.style.height = `${+height + 50}px`;
+        }
+        waitForTransition(elBall)
+            .then(()=> elBall.innerText = elBall.style.width.replace("px", ""));
+}
+
+function waitForTransition(el){
+    return new Promise(resolve => {
+        const handler = () => {
+            el.removeEventListener('transitionend', handler);
+            resolve();
+        }
+        el.addEventListener('transitionend', handler);
+    })
 }
