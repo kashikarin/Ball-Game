@@ -11,7 +11,10 @@ function onBallClick(){
             elBall.style.height = `${+height + 50}px`;
         }
         waitForTransition(elBall)
-            .then(()=> elBall.innerText = elBall.style.width.replace("px", ""));
+            .then(()=> {
+                elBall.innerText = elBall.style.width.replace("px", "")
+                elBall.style.backgroundColor = getRandomColor();
+            });
 }
 
 function waitForTransition(el){
