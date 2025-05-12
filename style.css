@@ -10,8 +10,6 @@ h1{
     width: 100px;
     height: 100px; 
     border-radius: 50%;
-    background-color: #c54a4a;
-    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,4 +17,13 @@ h1{
     font-weight: bold;
     transition: width 1s, height 1s;
     cursor: pointer;
+}
+
+.ball1{
+    background-color: #c54a4a;
+    margin: auto;
+}
+
+.ball2{
+    background-color: #1a9b54;
 }
