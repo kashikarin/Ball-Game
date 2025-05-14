@@ -27,9 +27,13 @@ h1{
 .ball2{
     background-color: #15794f;
     transition: width 1s, height 1s;
-
 }
 
 .ball3{
     background-color: #802e80;
+}
+
+.ball4{
+        background-color: #5189c9;
+
 }

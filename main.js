@@ -37,6 +37,48 @@ function onBall3Click(){
             
 }
 
+function onBall4Click(){
+    const elBall1 = document.querySelector('.ball1');
+    const elBall2 = document.querySelector('.ball2');
+    const reducer1 = getRandomInt(60, 20);    
+    const reducer2 = getRandomInt(60, 20);
+    let computedStyles1 = getComputedStyle(elBall1);
+    let computedStyles2 = getComputedStyle(elBall2);
+    let width1 = computedStyles1.width.replace("px", "");
+    let width2 = computedStyles2.width.replace("px", "");
+    if (+width1 - reducer1 > 100){
+        elBall1.style.width = `${+width1 - reducer1}px`;
+        elBall1.style.height = `${+width1 - reducer1}px`;
+    } else {
+        elBall1.style.width = '100px';
+        elBall1.style.height = '100px';
+        console.log('Set width to:', elBall1.style.width);
+    }
+    if (+width2 - reducer2 > 100){
+        elBall2.style.width = `${+width2 - reducer2}px`;
+        elBall2.style.height = `${+width2 - reducer2}px`;
+    } else {
+        elBall2.style.width = '100px';
+        elBall2.style.height = '100px';
+        console.log('Set width to:', elBall2.style.width);
+    }
+    
+    waitForTransition(elBall1).then(()=> {
+            computedStyles1 = getComputedStyle(elBall1);
+            width1 = computedStyles1.width.replace("px", "");
+            elBall1.innerText = +width1;
+            elBall1.style.backgroundColor = getRandomColor();
+            });
+    waitForTransition(elBall2).then(()=> {
+            computedStyles2 = getComputedStyle(elBall2);
+            width2 = computedStyles2.width.replace("px", "");
+            elBall2.innerText = +width2;
+            elBall2.style.backgroundColor = getRandomColor();
+        });
+
+    
+}
+
 function waitForTransition(el){
     return new Promise(resolve => {
         const handler = () => {

@@ -1,6 +1,7 @@
-function getRandomInt(max){
-    return Math.floor(Math.random() * max)
+function getRandomInt(max, min=0){
+    return Math.floor(Math.random() * (max-min)) + min;
 }
+
 
 
 function getRandomColor(){
