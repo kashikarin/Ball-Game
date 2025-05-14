@@ -10,7 +10,6 @@ h1{
     width: 100px;
     height: 100px; 
     border-radius: 50%;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,4 +26,10 @@ h1{
 
 .ball2{
     background-color: #15794f;
+    transition: width 1s, height 1s;
+
+}
+
+.ball3{
+    background-color: #802e80;
 }
