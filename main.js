@@ -1,9 +1,9 @@
-function onBallClick(){
+function onBallClick(maxDiameter){
     const elBall = document.querySelector('.ball');
         const computedStyles = getComputedStyle(elBall);
         let width = computedStyles.width.replace("px", "");
         let height = computedStyles.height.replace("px", "");
-        if (+width + 50 >= 400){
+        if (+width + 50 >= 400 || +width + 50 >= maxDiameter){
             elBall.style.width = '100px';
             elBall.style.height = '100px';
         } else {
@@ -26,3 +26,4 @@ function waitForTransition(el){
         el.addEventListener('transitionend', handler);
     })
 }
+
