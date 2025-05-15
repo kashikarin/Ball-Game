@@ -79,6 +79,10 @@ function onBall4Click(){
     
 }
 
+function onBall5Click(){
+    document.body.style.backgroundColor = getRandomColor();
+}
+
 function waitForTransition(el){
     return new Promise(resolve => {
         const handler = () => {
