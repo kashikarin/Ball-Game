@@ -1,4 +1,4 @@
-function onBall1Click(maxDiameter){
+function onBall1Click(maxDiameter = 400){
     const elBall1 = document.querySelector('.ball1');
         const computedStyles = getComputedStyle(elBall1);
         let width = computedStyles.width.replace("px", "");
@@ -85,6 +85,19 @@ function onBall5Click(){
 
 function onBall6Click(){
   location.reload()
+}
+
+function onBall6Hover(){
+    let hoverTimer = null;
+    hoverTimer = setInterval(()=> {
+        onBall1Click();
+        onBall3Click();
+        onBall4Click();
+    }, 2000);
+    const elBall6 = document.querySelector('.ball6');
+    elBall6.addEventListener(onmouseout, () => {
+        clearInterval(hoverTimer);
+    })
 }
 
 function waitForTransition(el){
