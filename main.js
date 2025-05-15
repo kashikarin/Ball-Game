@@ -83,6 +83,10 @@ function onBall5Click(){
     document.body.style.backgroundColor = getRandomColor();
 }
 
+function onBall6Click(){
+  location.reload()
+}
+
 function waitForTransition(el){
     return new Promise(resolve => {
         const handler = () => {
